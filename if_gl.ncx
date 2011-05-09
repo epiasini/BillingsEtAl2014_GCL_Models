@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_20" class="java.beans.XMLDecoder">
+<java version="1.6.0_22" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -9,7 +9,7 @@ part of NeuroML or any standardised XML specification. -->
 
  <object class="ucl.physiol.neuroconstruct.project.BasicProjectInfo">
   <void property="projectFileVersion">
-   <string>neuroConstruct v1.4.1</string>
+   <string>neuroConstruct v1.5.1</string>
   </void>
   <void property="projectName">
    <string>if_gl</string>
@@ -351,7 +351,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate">
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
        <void property="fixedNum">
-        <float>0.8</float>
+        <float>0.5</float>
        </void>
        <void property="numberType">
         <int>11</int>
