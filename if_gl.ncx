@@ -373,6 +373,17 @@ part of NeuroML or any standardised XML specification. -->
        <float>0.0</float>
       </void>
      </void>
+     <void property="cellChooser">
+      <object class="ucl.physiol.neuroconstruct.project.cellchoice.FixedNumberCells">
+       <void property="parameterList">
+        <void index="0">
+         <void property="value">
+          <float>0.0</float>
+         </void>
+        </void>
+       </void>
+      </object>
+     </void>
      <void property="cellGroup">
       <string>GrCs</string>
      </void>
