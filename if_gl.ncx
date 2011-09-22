@@ -354,7 +354,7 @@ part of NeuroML or any standardised XML specification. -->
      <void property="rate">
       <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
        <void property="fixedNum">
-        <float>0.5</float>
+        <float>0.03</float>
        </void>
        <void property="numberType">
         <int>11</int>
