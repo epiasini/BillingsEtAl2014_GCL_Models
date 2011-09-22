@@ -11,16 +11,16 @@ Note the following:
    Mechanism Type should only have values: Channel mechanism, Synaptic mechanism, Ion concentration, Point process, Gap junction
 
 </comment>
-<entry key="Description">Leak conductance for the integrate-and-fire model of the granule cell.</entry>
+<entry key="Description">AMPA synapse for J. Rothman's integrate-and-fire granule cell model.</entry>
 <entry key="NEURON mapping">ChannelML_v1.8.1_NEURONmod.xsl</entry>
 <entry key="PSICS file requires compilation">false</entry>
 <entry key="GENESIS mapping">ChannelML_v1.8.1_GENESIStab.xsl</entry>
 <entry key="Implementation method">ChannelML based Cell Mechanism</entry>
 <entry key="NEURON file requires compilation">true</entry>
-<entry key="Mechanism Type">Channel mechanism</entry>
+<entry key="Mechanism Type">Synaptic mechanism</entry>
 <entry key="PSICS mapping">ChannelML_v1.8.1_PSICS.xsl</entry>
-<entry key="ChannelML file">LeakConductance.xml</entry>
+<entry key="ChannelML file">AMPA.xml</entry>
 <entry key="GENESIS file requires compilation">false</entry>
-<entry key="Mechanism Name">LeakConductance</entry>
+<entry key="Mechanism Name">AMPA</entry>
 <entry key="Mechanism Model">ChannelML based process</entry>
 </properties>

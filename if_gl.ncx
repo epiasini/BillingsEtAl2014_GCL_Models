@@ -104,7 +104,7 @@ part of NeuroML or any standardised XML specification. -->
    <void method="get">
     <string>Cell Type</string>
     <void method="add">
-     <string>IF_simple</string>
+     <string>ExcCell</string>
     </void>
     <void method="add">
      <string>IF_GrC</string>
@@ -326,6 +326,9 @@ part of NeuroML or any standardised XML specification. -->
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
   </void>
+  <void property="temperature">
+   <float>37.0</float>
+  </void>
   <void property="whatToRecord">
    <int>2</int>
   </void>
@@ -362,7 +365,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>MF_stim</string>
      </void>
      <void property="synapseType">
-      <string>AlphaSyn1</string>
+      <string>FastSynInput</string>
      </void>
     </object>
    </void>
@@ -481,10 +484,34 @@ part of NeuroML or any standardised XML specification. -->
          </object>
         </void>
         <void property="synapseType">
-         <string>AlphaSyn1</string>
+         <string>AMPA</string>
         </void>
-        <void property="threshold">
-         <double>-40.0</double>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="fixedNum">
+           <float>0.2</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="fixedNum">
+           <float>0.0</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>NMDA</string>
         </void>
         <void property="weightsGenerator">
          <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
+    
+    <meta:notes/>
+    
+     
+    <synapse_type name="AMPA">
+            
+        <status value="stable">
+            <meta:contributor>
+                <meta:name>Eugenio Piasini</meta:name>
+            </meta:contributor>
+        </status>
+        
+      
+        <meta:notes>AMPA synapse for J. Rothman's integrate-and-fire granule cell model.</meta:notes>
+      
+        <multi_decay_syn max_conductance="2.28E-6" rise_time="0.15" decay_time="2.5" max_conductance_2="0.296E-6" decay_time_2="2.88" max_conductance_3="0.0788E-6" decay_time_3="21.67" reversal_potential="0"/>
+    
+    </synapse_type>
+    
+    
+    
+</channelml>

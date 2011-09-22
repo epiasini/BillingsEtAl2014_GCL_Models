@@ -22,7 +22,7 @@
           </meta:modelTranslator>            
         </meta:authorList>
 
-        <current_voltage_relation cond_law="ohmic" ion="non_specific" default_erev="-75" default_gmax="0.15915457"/>
+        <current_voltage_relation cond_law="ohmic" ion="non_specific" default_erev="-75" default_gmax="0.3183092"/>
 
     </channel_type>
  
