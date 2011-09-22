@@ -187,7 +187,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>SPIKE:-40</string>
+      <string>SPIKE:0</string>
      </void>
     </object>
    </void>
@@ -218,7 +218,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>0</string>
      </void>
      <void property="valuePlotted">
-      <string>SPIKE:-40</string>
+      <string>SPIKE:-48</string>
      </void>
     </object>
    </void>
