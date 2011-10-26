@@ -107,7 +107,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>ExcCell</string>
     </void>
     <void method="add">
-     <string>ExcCell</string>
+     <string>IF_GrC</string>
     </void>
    </void>
    <void method="get">
@@ -693,9 +693,6 @@ part of NeuroML or any standardised XML specification. -->
         </void>
         <void property="synapseType">
          <string>AMPA_spillover</string>
-        </void>
-        <void property="threshold">
-         <double>-20.0</double>
         </void>
         <void property="weightsGenerator">
          <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
