@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
-
-    <meta:notes>ChannelML file describing a synaptic mechanism</meta:notes>
+    
+    <meta:notes/>
     
      
-    <synapse_type name="NMDA">
-        
+    <synapse_type name="AMPA_spillover">
+            
         <status value="stable">
             <meta:contributor>
                 <meta:name>Eugenio Piasini</meta:name>
             </meta:contributor>
         </status>
         
-    
-        <meta:notes>NMDA synapse for J. Rothman's integrate-and-fire granule cell model.</meta:notes>
-        
-        <blocking_syn max_conductance="0.34493226410404537E-6" rise_time="0.71428156941096088" decay_time="20.237434165271281" reversal_potential="0">
-            <block species="mg" conc="1" eta="0.69630948908395673" gamma="0.037357666964309727"/>
-        </blocking_syn>
+      
+        <meta:notes>AMPA synapse (spillover component)for J. Rothman's integrate-and-fire granule cell model.</meta:notes>
+      
+        <multi_decay_syn max_conductance="0.079542025820052806E-6" rise_time="0.80210470644636667" decay_time="0.80207014366635243" max_conductance_2="0.10646533514085689E-6" decay_time_2="7.4319495927849406" max_conductance_3="0.0076450441026463438E-6" decay_time_3="35.328685947997506" reversal_potential="0"/>
     
     </synapse_type>
     

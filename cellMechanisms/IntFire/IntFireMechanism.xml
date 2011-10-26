@@ -21,7 +21,7 @@
         </meta:authorList>
 
         <current_voltage_relation>
-            <integrate_and_fire threshold="-48" t_refrac="0.9" v_reset="-68" g_refrac="0.1"/>
+            <integrate_and_fire threshold="-40" t_refrac="2.0" v_reset="-63" g_refrac="0.1"/>
             
         </current_voltage_relation>
 

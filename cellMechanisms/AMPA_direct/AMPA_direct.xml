@@ -4,7 +4,7 @@
     <meta:notes/>
     
      
-    <synapse_type name="AMPA">
+    <synapse_type name="AMPA_direct">
             
         <status value="stable">
             <meta:contributor>
@@ -13,9 +13,9 @@
         </status>
         
       
-        <meta:notes>AMPA synapse for J. Rothman's integrate-and-fire granule cell model.</meta:notes>
+        <meta:notes>AMPA synapse (direct component) for J. Rothman's integrate-and-fire granule cell model.</meta:notes>
       
-        <multi_decay_syn max_conductance="2.28E-6" rise_time="0.15" decay_time="2.5" max_conductance_2="0.296E-6" decay_time_2="2.88" max_conductance_3="0.0788E-6" decay_time_3="21.67" reversal_potential="0"/>
+        <multi_decay_syn max_conductance="0.42291143122276215E-6" rise_time="0.25672588905037314" decay_time="0.25670987195439521" max_conductance_2="0.078017689730606993E-6" decay_time_2="2.1661621789534427" max_conductance_3="0.014490496840329522E-6" decay_time_3="21.598698431899042" reversal_potential="0"/>
     
     </synapse_type>
     
