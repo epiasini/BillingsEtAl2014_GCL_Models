@@ -25,6 +25,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>Regions_2</string>
     </void>
+    <void method="add">
+     <string>Golgi_region</string>
+    </void>
    </void>
    <void method="get">
     <string>Colour</string>
@@ -38,6 +41,14 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <object idref="Color0"/>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>255</int>
+      <int>255</int>
+      <int>255</int>
+      <int>255</int>
+     </object>
     </void>
    </void>
    <void method="get">
@@ -79,6 +90,22 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="4">
+        <void property="value">
+         <float>80.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>178.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
    </void>
   </void>
  </object>
@@ -100,6 +127,13 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>37</int>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Cell Type</string>
@@ -109,6 +143,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>IF_GrC</string>
     </void>
+    <void method="add">
+     <string>GJGolgi_Reduced</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -117,6 +154,9 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <int>9</int>
+    </void>
+    <void method="add">
+     <int>8</int>
     </void>
    </void>
    <void method="get">
@@ -137,6 +177,14 @@ part of NeuroML or any standardised XML specification. -->
       <int>255</int>
      </object>
     </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>35</int>
+      <int>11</int>
+      <int>200</int>
+      <int>255</int>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Region Name</string>
@@ -146,6 +194,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>Regions_2</string>
     </void>
+    <void method="add">
+     <string>Golgi_region</string>
+    </void>
    </void>
    <void method="get">
     <string>Cell Group Name</string>
@@ -154,6 +205,9 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <string>GrCs</string>
+    </void>
+    <void method="add">
+     <string>GoCs</string>
     </void>
    </void>
   </void>
@@ -420,6 +474,9 @@ part of NeuroML or any standardised XML specification. -->
       </void>
       <void method="add">
        <string>GrCs</string>
+      </void>
+      <void method="add">
+       <string>GoCs</string>
       </void>
      </void>
      <void property="description">
