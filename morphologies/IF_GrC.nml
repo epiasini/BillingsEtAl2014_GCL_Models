@@ -71,6 +71,10 @@
                     <net:group>all</net:group>
                 </net:potential_syn_loc>
             
+                <net:potential_syn_loc synapse_type="GABA_phasic_average">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="NMDA">
                     <net:group>all</net:group>
                 </net:potential_syn_loc>
