@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema   http://www.neuroml.org/NeuroMLValidator/NeuroMLFiles/Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
+
+    <meta:notes/>
+
+
+    <synapse_type name="GABA_phasic_average">
+
+        <status value="stable"/>
+
+        <meta:notes>GABA Golgi to granule synapse from Daniel Ward's phd thesis (UCL, 2012; see page 67). This is the "average" synapse as measured from all (N=69) Goc-grc paired recordings, for direct and spillover connections alike.</meta:notes>
+
+	<meta:authorList>
+	  <meta:modelAuthor>
+	    <meta:name>Eugenio Piasini</meta:name>
+            <meta:institution>UCL</meta:institution>
+            <meta:email>e.piasini - at - ucl.ac.uk</meta:email>
+	  </meta:modelAuthor>
+	  <meta:modelAuthor>
+	    <meta:name>Daniel R. Ward</meta:name>
+            <meta:institution>UCL</meta:institution>
+	  </meta:modelAuthor>
+	</meta:authorList>
+
+        <meta:publication>
+          <meta:fullTitle>Ward, Daniel R. Golgi cell mediated inhibition in the cerebellar granule cell layer. PhD thesis, University College London, 2012.</meta:fullTitle>
+        </meta:publication>
+
+        <doub_exp_syn max_conductance="270E-9" rise_time="2.1" decay_time="23" reversal_potential="-75.0"/>
+
+    </synapse_type>
+
+
+
+</channelml>
