@@ -20,25 +20,20 @@ part of NeuroML or any standardised XML specification. -->
    <void method="get">
     <string>Name</string>
     <void method="add">
-     <string>Golgi_region</string>
-    </void>
-    <void method="add">
      <string>GrC_region</string>
     </void>
     <void method="add">
      <string>MF_region</string>
     </void>
+    <void method="add">
+     <string>Golgi_local_region</string>
+    </void>
+    <void method="add">
+     <string>Golgi_remote_region</string>
+    </void>
    </void>
    <void method="get">
     <string>Colour</string>
-    <void method="add">
-     <object class="java.awt.Color">
-      <int>255</int>
-      <int>255</int>
-      <int>255</int>
-      <int>255</int>
-     </object>
-    </void>
     <void method="add">
      <object id="Color0" class="java.awt.Color">
       <int>255</int>
@@ -50,25 +45,20 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object idref="Color0"/>
     </void>
+    <void method="add">
+     <object id="Color1" class="java.awt.Color">
+      <int>255</int>
+      <int>255</int>
+      <int>255</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object idref="Color1"/>
+    </void>
    </void>
    <void method="get">
     <string>Description</string>
-    <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
-      <void property="parameterList">
-       <void index="4">
-        <void property="value">
-         <float>80.0</float>
-        </void>
-       </void>
-       <void index="6">
-        <void property="value">
-         <float>178.0</float>
-        </void>
-       </void>
-      </void>
-     </object>
-    </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
       <void property="parameterList">
@@ -106,6 +96,38 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="4">
+        <void property="value">
+         <float>80.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>75.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.CylindricalRegion">
+      <void property="parameterList">
+       <void index="4">
+        <void property="value">
+         <float>80.0</float>
+        </void>
+       </void>
+       <void index="6">
+        <void property="value">
+         <float>178.0</float>
+        </void>
+       </void>
+      </void>
+     </object>
+    </void>
    </void>
   </void>
  </object>
@@ -130,7 +152,14 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>37</int>
+       <int>7</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
+      <void property="maxNumberCells">
+       <int>30</int>
       </void>
      </object>
     </void>
@@ -146,6 +175,9 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>GJGolgi_Reduced</string>
     </void>
+    <void method="add">
+     <string>GJGolgi_Reduced</string>
+    </void>
    </void>
    <void method="get">
     <string>Priority</string>
@@ -156,7 +188,10 @@ part of NeuroML or any standardised XML specification. -->
      <int>9</int>
     </void>
     <void method="add">
-     <int>8</int>
+     <int>7</int>
+    </void>
+    <void method="add">
+     <int>6</int>
     </void>
    </void>
    <void method="get">
@@ -179,9 +214,17 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <object class="java.awt.Color">
-      <int>35</int>
-      <int>11</int>
-      <int>200</int>
+      <int>197</int>
+      <int>207</int>
+      <int>203</int>
+      <int>255</int>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.awt.Color">
+      <int>212</int>
+      <int>31</int>
+      <int>18</int>
       <int>255</int>
      </object>
     </void>
@@ -195,7 +238,10 @@ part of NeuroML or any standardised XML specification. -->
      <string>GrC_region</string>
     </void>
     <void method="add">
-     <string>Golgi_region</string>
+     <string>Golgi_local_region</string>
+    </void>
+    <void method="add">
+     <string>Golgi_remote_region</string>
     </void>
    </void>
    <void method="get">
@@ -207,7 +253,10 @@ part of NeuroML or any standardised XML specification. -->
      <string>GrCs</string>
     </void>
     <void method="add">
-     <string>GoCs</string>
+     <string>GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>GoCs_remote</string>
     </void>
    </void>
   </void>
@@ -335,7 +384,7 @@ part of NeuroML or any standardised XML specification. -->
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimPlot">
      <void property="cellGroup">
-      <string>GoCs</string>
+      <string>GoCs_local</string>
      </void>
      <void property="cellNumber">
       <string>*</string>
@@ -353,7 +402,7 @@ part of NeuroML or any standardised XML specification. -->
       <string>Plot and save</string>
      </void>
      <void property="plotReference">
-      <string>GoC_spikes</string>
+      <string>GoC_local_spikes</string>
      </void>
      <void property="segmentId">
       <string>0</string>
@@ -366,7 +415,7 @@ part of NeuroML or any standardised XML specification. -->
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimPlot">
      <void property="cellGroup">
-      <string>GoCs</string>
+      <string>GoCs_local</string>
      </void>
      <void property="cellNumber">
       <string>*</string>
@@ -384,7 +433,66 @@ part of NeuroML or any standardised XML specification. -->
       <string>Plot and save</string>
      </void>
      <void property="plotReference">
-      <string>GoC_v</string>
+      <string>GoC_local_v</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>GoCs_remote</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_2</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>GoC_remote_spikes</string>
+     </void>
+     <void property="segmentId">
+      <string>0</string>
+     </void>
+     <void property="valuePlotted">
+      <string>SPIKE:-20</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.project.SimPlot">
+     <void property="cellGroup">
+      <string>GoCs_remote</string>
+     </void>
+     <void property="cellNumber">
+      <string>*</string>
+     </void>
+     <void property="graphWindow">
+      <string>GraphWin_3</string>
+     </void>
+     <void property="maxValue">
+      <float>50.0</float>
+     </void>
+     <void property="minValue">
+      <float>-90.0</float>
+     </void>
+     <void property="plotAndOrSave">
+      <string>Plot and save</string>
+     </void>
+     <void property="plotReference">
+      <string>GoC_remote_v</string>
      </void>
      <void property="segmentId">
       <string>0</string>
@@ -437,7 +545,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_52</string>
+   <string>Sim_55</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -521,6 +629,39 @@ part of NeuroML or any standardised XML specification. -->
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+     <void property="cellGroup">
+      <string>GoCs_remote</string>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.004</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>Golgi_remote_basolateral_input</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>basolateral_soma</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>20</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>Golgi_AMPA_mf</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -532,16 +673,22 @@ part of NeuroML or any standardised XML specification. -->
        <string>MFs</string>
       </void>
       <void method="add">
-       <string>GrCs</string>
+       <string>GoCs_local</string>
       </void>
       <void method="add">
-       <string>GoCs</string>
+       <string>GoCs_remote</string>
+      </void>
+      <void method="add">
+       <string>GrCs</string>
       </void>
      </void>
      <void property="description">
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string>
      </void>
      <void property="inputs">
+      <void method="add">
+       <string>Golgi_remote_basolateral_input</string>
+      </void>
       <void method="add">
        <string>MF_stim</string>
       </void>
@@ -566,42 +713,35 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="netConns">
       <void method="add">
-       <string>NetConn_GoCs_GrCs</string>
+       <string>NetConn_MFs_GrCs</string>
       </void>
       <void method="add">
-       <string>NetConn_MFs_GrCs</string>
+       <string>NetConn_MFs_GoCs_local</string>
       </void>
      </void>
      <void property="plots">
       <void method="add">
-       <string>GoC_v</string>
+       <string>GoC_remote_v</string>
       </void>
       <void method="add">
        <string>GrC_v</string>
       </void>
+      <void method="add">
+       <string>GoC_local_v</string>
+      </void>
      </void>
      <void property="simDuration">
-      <float>1500.0</float>
+      <float>500.0</float>
      </void>
     </object>
    </void>
    <void method="add">
     <object class="ucl.physiol.neuroconstruct.project.SimConfig">
-     <void property="cellGroups">
-      <void method="add">
-       <string>GoCs</string>
-      </void>
-     </void>
      <void property="description">
       <string>test only the Golgi cells</string>
      </void>
      <void property="name">
       <string>test_GoC</string>
-     </void>
-     <void property="plots">
-      <void method="add">
-       <string>GoC_v</string>
-      </void>
      </void>
      <void property="simDuration">
       <float>100.0</float>
@@ -618,7 +758,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>NetConn_MFs_GrCs</string>
     </void>
     <void method="add">
-     <string>NetConn_GoCs_GrCs</string>
+     <string>NetConn_MFs_GoCs_local</string>
     </void>
    </void>
    <void method="get">
@@ -951,10 +1091,7 @@ part of NeuroML or any standardised XML specification. -->
          </object>
         </void>
         <void property="synapseType">
-         <string>GABA_phasic_average</string>
-        </void>
-        <void property="threshold">
-         <double>-20.0</double>
+         <string>Golgi_AMPA_mf</string>
         </void>
         <void property="weightsGenerator">
          <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
@@ -1000,7 +1137,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>MFs</string>
     </void>
     <void method="add">
-     <string>GoCs</string>
+     <string>MFs</string>
     </void>
    </void>
    <void method="get">
@@ -1033,12 +1170,7 @@ part of NeuroML or any standardised XML specification. -->
       </void>
       <void property="numConnsInitiatingCellGroup">
        <void property="fixedNum">
-        <float>4.0</float>
-       </void>
-      </void>
-      <void property="prePostAllowedLoc">
-       <void property="axonsAllowedPre">
-        <boolean>false</boolean>
+        <float>20.0</float>
        </void>
       </void>
      </object>
@@ -1050,7 +1182,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>GrCs</string>
     </void>
     <void method="add">
-     <string>GrCs</string>
+     <string>GoCs_local</string>
     </void>
    </void>
   </void>

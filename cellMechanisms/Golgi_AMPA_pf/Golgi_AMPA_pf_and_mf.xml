@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="Physiological Units">
+
+    <synapse_type name="Golgi_AMPA_pf">
+
+      <meta:notes>AMPA component for parallel fiber and mossy fiber to Golgi cell synapse. Incorporates fast and slow component.</meta:notes>
+
+      <status value="in_progress">
+	<meta:comment>Stable</meta:comment>
+	<meta:issue>Mapping only implemented for NEURON so far</meta:issue>
+	<meta:contributor>
+	  <meta:name>Padraig Gleeson</meta:name>
+	</meta:contributor>
+	<meta:contributor>
+	  <meta:name>Eugenio Piasini</meta:name>
+	  <meta:email>e.piasini - at - ucl.ac.uk</meta:email>
+	</meta:contributor>
+      </status>
+      <meta:authorList>
+	<meta:modelAuthor>
+	  <meta:name>KoenVervaeke</meta:name>
+	</meta:modelAuthor>
+      </meta:authorList>
+
+      <meta:publication>
+	<meta:fullTitle>Vervaeke, K., Lorincz, A., Nusser, Z., and Silver, R. A. Gap junctions compensate for sublinear dendritic integration in an inhibitory network. Science, 335(6076):1624-1628, Mar 2012.</meta:fullTitle>
+	<meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/22403180</meta:pubmedRef>
+      </meta:publication>
+
+      <multi_decay_syn max_conductance="0.7E-6" rise_time="0.1" decay_time="0.7" max_conductance_2="0.2E-6" decay_time_2="2.5" max_conductance_3="0" decay_time_3="40" reversal_potential="0">                             <!-- Note: max_conductance_3 and decay_time_3 are optional-->
+
+
+      </multi_decay_syn>
+
+    </synapse_type>
+
+</channelml>

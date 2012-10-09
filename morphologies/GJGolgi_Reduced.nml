@@ -66,6 +66,7 @@
                 <mml:cable id="0" name="Soma">
                     <meta:group>all</meta:group>
                     <meta:group>soma_group</meta:group>
+                    <meta:group>basolateral_soma</meta:group>
                 </mml:cable>
 
                 <mml:cable id="1" name="Dend_ap_1" fract_along_parent="0.5">
@@ -102,11 +103,15 @@
                 <mml:cable id="7" name="Dend_bl_1" fract_along_parent="0.5">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>basolateral</meta:group>
+                    <meta:group>basolateral_soma</meta:group>
                 </mml:cable>
 
                 <mml:cable id="8" name="Dend_bl_2" fract_along_parent="0.5">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>basolateral</meta:group>
+                    <meta:group>basolateral_soma</meta:group>
                 </mml:cable>
 
                 <mml:cable id="9" name="Axon" fract_along_parent="0.5">
@@ -270,6 +275,14 @@
                     <net:group>soma_group</net:group>
                 
                     <net:group>axon_group</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Golgi_AMPA_mf">
+                    <net:group>basolateral_soma</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Golgi_AMPA_pf">
+                    <net:group>apical</net:group>
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="MultiDecaySyn_VervaekeEtAl_GJCompensate" synapse_direction="post">
