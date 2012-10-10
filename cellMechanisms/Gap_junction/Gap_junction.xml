@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.8.0/Level2/ChannelML_v1.8.0.xsd" units="Physiological Units">
+
+    <meta:notes>ChannelML file describing a single synaptic mechanism</meta:notes>
+
+    <synapse_type name="Gap_junction">
+
+        <status value="stable">
+            <meta:comment>Note: No mapping for GENESIS yet</meta:comment>
+            <meta:contributor>
+                <meta:name>Padraig Gleeson</meta:name>
+            </meta:contributor>
+            <meta:contributor>
+                <meta:name>Eugenio Piasini</meta:name>
+		<meta:email>e.piasini - at - ucl.ac.uk</meta:email>
+            </meta:contributor>
+        </status>
+	<meta:authorList>
+	  <meta:modelAuthor>
+	    <meta:name>Koen Vervaeke</meta:name>
+	  </meta:modelAuthor>
+	</meta:authorList>
+
+        <meta:notes>Description of an electrical synapse at a gap junction. The actual (space dependent) conductance value is meant to be defined through the 'synaptic strength' parameter when defining a morphology based connection in neuroConstruct.</meta:notes>
+
+	<meta:publication>
+	  <meta:fullTitle>Vervaeke, K., Lorincz, A., Gleeson, P., Farinella, M., Nusser, Z., and Silver, R. A. Rapid desynchronization of an electrically coupled interneuron network with sparse excitatory synaptic input. Neuron, 67(3):435-451, 2010.</meta:fullTitle>
+	  <meta:pubmedRef>https://www.ncbi.nlm.nih.gov/pubmed/20696381</meta:pubmedRef>
+	</meta:publication>
+
+        <electrical_syn conductance="1.00E-9"/>
+
+    </synapse_type>
+
+</channelml>

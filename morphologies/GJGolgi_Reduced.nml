@@ -78,26 +78,31 @@
                 <mml:cable id="2" name="Dend_ap_2" fract_along_parent="0.5">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical</meta:group>
                 </mml:cable>
 
                 <mml:cable id="3" name="Dend_ap_2_2">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical</meta:group>
                 </mml:cable>
 
                 <mml:cable id="4" name="Dend_ap_2_3">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical</meta:group>
                 </mml:cable>
 
                 <mml:cable id="5" name="Dend_ap_1_2">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical</meta:group>
                 </mml:cable>
 
                 <mml:cable id="6" name="Dend_ap_1_3">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
+                    <meta:group>apical</meta:group>
                 </mml:cable>
 
                 <mml:cable id="7" name="Dend_bl_1" fract_along_parent="0.5">
@@ -271,10 +276,12 @@
             </biophysics>
 
             <connectivity>
-                <net:potential_syn_loc synapse_type="GABA_phasic_average">
+                <net:potential_syn_loc synapse_type="GABA_phasic_average" synapse_direction="preAndOrPost">
                     <net:group>soma_group</net:group>
-                
-                    <net:group>axon_group</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Gap_junction">
+                    <net:group>apical</net:group>
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Golgi_AMPA_mf">

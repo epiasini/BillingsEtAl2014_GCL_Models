@@ -214,9 +214,9 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <object class="java.awt.Color">
-      <int>197</int>
-      <int>207</int>
-      <int>203</int>
+      <int>0</int>
+      <int>102</int>
+      <int>102</int>
       <int>255</int>
      </object>
     </void>
@@ -545,7 +545,7 @@ part of NeuroML or any standardised XML specification. -->
    <float>100.0</float>
   </void>
   <void property="reference">
-   <string>Sim_55</string>
+   <string>Sim_64</string>
   </void>
   <void property="saveCopyGenSimFiles">
    <boolean>true</boolean>
@@ -662,6 +662,72 @@ part of NeuroML or any standardised XML specification. -->
      </void>
     </object>
    </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+     <void property="cellGroup">
+      <string>GoCs_remote</string>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.003</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>Golgi_remote_apical_input</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>100</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>Golgi_AMPA_pf</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="ucl.physiol.neuroconstruct.simulation.RandomSpikeTrainSettings">
+     <void property="cellGroup">
+      <string>GoCs_local</string>
+     </void>
+     <void property="rate">
+      <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+       <void property="fixedNum">
+        <float>0.003</float>
+       </void>
+       <void property="numberType">
+        <int>11</int>
+       </void>
+      </object>
+     </void>
+     <void property="reference">
+      <string>Golgi_local_apical_input</string>
+     </void>
+     <void property="segChooser">
+      <object class="ucl.physiol.neuroconstruct.project.segmentchoice.GroupDistributedSegments">
+       <void property="group">
+        <string>apical</string>
+       </void>
+       <void property="numberOfSegments">
+        <int>100</int>
+       </void>
+      </object>
+     </void>
+     <void property="synapseType">
+      <string>Golgi_AMPA_pf</string>
+     </void>
+    </object>
+   </void>
   </void>
  </object>
  <object class="ucl.physiol.neuroconstruct.project.SimConfigInfo">
@@ -690,19 +756,90 @@ part of NeuroML or any standardised XML specification. -->
        <string>Golgi_remote_basolateral_input</string>
       </void>
       <void method="add">
+       <string>Golgi_local_apical_input</string>
+      </void>
+      <void method="add">
+       <string>Golgi_remote_apical_input</string>
+      </void>
+      <void method="add">
        <string>MF_stim</string>
       </void>
      </void>
      <void id="MpiConfiguration0" property="mpiConf">
       <void property="hostList">
        <void index="0">
+        <void property="hostname">
+         <string>node0</string>
+        </void>
         <void property="numProcessors">
          <int>4</int>
         </void>
        </void>
       </void>
       <void property="name">
-       <string>Local machine (4p)</string>
+       <string>MatLem (1 x 4p)</string>
+      </void>
+      <void property="queueInfo">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo">
+        <void property="account">
+         <string></string>
+        </void>
+        <void property="queueType">
+         <object class="java.lang.Enum" method="valueOf">
+          <class>ucl.physiol.neuroconstruct.hpc.mpi.QueueInfo$QueueType</class>
+          <string>SGE</string>
+         </object>
+        </void>
+        <void property="wallTimeMins">
+         <int>6</int>
+        </void>
+       </object>
+      </void>
+      <void property="remoteLogin">
+       <object class="ucl.physiol.neuroconstruct.hpc.mpi.RemoteLogin">
+        <void property="executables">
+         <void method="put">
+          <object class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>PY_NEURON</string>
+          </object>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv -python</string>
+         </void>
+         <void method="put">
+          <object class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>GENESIS</string>
+          </object>
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+         </void>
+         <void method="put">
+          <object class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>MOOSE</string>
+          </object>
+          <string>/share/apps/neuro/moose/moose</string>
+         </void>
+         <void method="put">
+          <object class="java.lang.Enum" method="valueOf">
+           <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
+           <string>NEURON</string>
+          </object>
+          <string>/share/apps/neuro/nrn71/x86_64/bin/nrniv</string>
+         </void>
+        </void>
+        <void property="hostname">
+         <string>128.16.14.177</string>
+        </void>
+        <void property="userName">
+         <string>ucbtepi</string>
+        </void>
+        <void property="workDir">
+         <string>/home/ucbtepi/nCsims</string>
+        </void>
+       </object>
+      </void>
+      <void property="useScp">
+       <boolean>true</boolean>
       </void>
      </void>
      <void property="mpiConf">
@@ -713,10 +850,25 @@ part of NeuroML or any standardised XML specification. -->
      </void>
      <void property="netConns">
       <void method="add">
+       <string>NetConn_GoCs_local_GoCs_local</string>
+      </void>
+      <void method="add">
        <string>NetConn_MFs_GrCs</string>
       </void>
       <void method="add">
        <string>NetConn_MFs_GoCs_local</string>
+      </void>
+      <void method="add">
+       <string>NetConn_GoCs_remote_GrCs</string>
+      </void>
+      <void method="add">
+       <string>NetConn_GoCs_local_GrCs</string>
+      </void>
+      <void method="add">
+       <string>NetConn_GoCs_remote_GoCs_local</string>
+      </void>
+      <void method="add">
+       <string>NetConn_GoCs_remote_GoCs_remote</string>
       </void>
      </void>
      <void property="plots">
@@ -760,9 +912,39 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <string>NetConn_MFs_GoCs_local</string>
     </void>
+    <void method="add">
+     <string>NetConn_GoCs_local_GrCs</string>
+    </void>
+    <void method="add">
+     <string>NetConn_GoCs_remote_GrCs</string>
+    </void>
+    <void method="add">
+     <string>NetConn_GoCs_local_GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>NetConn_GoCs_remote_GoCs_remote</string>
+    </void>
+    <void method="add">
+     <string>NetConn_GoCs_remote_GoCs_local</string>
+    </void>
    </void>
    <void method="get">
     <string>AP speed</string>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
+    <void method="add">
+     <float>3.4028235E38</float>
+    </void>
     <void method="add">
      <float>3.4028235E38</float>
     </void>
@@ -1104,9 +1286,1535 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>GABA_phasic_average</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>GABA_phasic_average</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="fixedNum">
+           <float>5.0</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>Gap_junction</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="distributionType">
+           <int>3</int>
+          </void>
+          <void property="inhomoExpr">
+           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+            <void property="first">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+              <void property="first">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>-564.5</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>+</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>576.4</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>*</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                    <void property="internalEqn">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>-1.0</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>2.3</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>+</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>29.7</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                              <void property="internalEqn">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                  <void property="first">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                    <void property="value">
+                                     <double>-1.0</double>
+                                    </void>
+                                   </object>
+                                  </void>
+                                  <void property="operation">
+                                   <char>*</char>
+                                  </void>
+                                  <void property="second">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                    <void property="name">
+                                     <string>r</string>
+                                    </void>
+                                   </object>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>/</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>70.4</double>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="name">
+                               <string>exp</string>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>/</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>100.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>0.124</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="name">
+                     <string>exp</string>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="operation">
+               <char>+</char>
+              </void>
+              <void property="second">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>0.5931</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>*</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>-1.0</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>2.3</double>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>29.7</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                            <void property="internalEqn">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>-1.0</double>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>*</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                  <void property="name">
+                                   <string>r</string>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>/</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>70.4</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="name">
+                             <string>exp</string>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>100.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>/</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                      <void property="value">
+                       <double>0.0279</double>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>exp</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+             </object>
+            </void>
+            <void property="operation">
+             <char>*</char>
+            </void>
+            <void property="second">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.HeavisideStepFunctionUnit">
+              <void property="internalEqn">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>-1.0</double>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>*</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>1745.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>+</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>90.5</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1745.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1.0</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                          <void property="internalEqn">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                <void property="name">
+                                 <string>r</string>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>-</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>267.0</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>/</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>39.0</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="name">
+                           <string>exp</string>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>/</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>100.0</double>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>-</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.RandomFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>1.0</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>random</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="name">
+               <string>H</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+          <void property="somaToSoma">
+           <boolean>true</boolean>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="fixedNum">
+           <float>5.0</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>Gap_junction</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="distributionType">
+           <int>3</int>
+          </void>
+          <void property="inhomoExpr">
+           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+            <void property="first">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+              <void property="first">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>-564.5</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>+</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>576.4</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>*</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                    <void property="internalEqn">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>-1.0</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>2.3</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>+</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>29.7</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                              <void property="internalEqn">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                  <void property="first">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                    <void property="value">
+                                     <double>-1.0</double>
+                                    </void>
+                                   </object>
+                                  </void>
+                                  <void property="operation">
+                                   <char>*</char>
+                                  </void>
+                                  <void property="second">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                    <void property="name">
+                                     <string>r</string>
+                                    </void>
+                                   </object>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>/</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>70.4</double>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="name">
+                               <string>exp</string>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>/</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>100.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>0.124</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="name">
+                     <string>exp</string>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="operation">
+               <char>+</char>
+              </void>
+              <void property="second">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>0.5931</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>*</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>-1.0</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>2.3</double>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>29.7</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                            <void property="internalEqn">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>-1.0</double>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>*</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                  <void property="name">
+                                   <string>r</string>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>/</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>70.4</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="name">
+                             <string>exp</string>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>100.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>/</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                      <void property="value">
+                       <double>0.0279</double>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>exp</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+             </object>
+            </void>
+            <void property="operation">
+             <char>*</char>
+            </void>
+            <void property="second">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.HeavisideStepFunctionUnit">
+              <void property="internalEqn">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>-1.0</double>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>*</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>1745.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>+</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>90.5</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1745.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1.0</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                          <void property="internalEqn">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                <void property="name">
+                                 <string>r</string>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>-</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>267.0</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>/</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>39.0</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="name">
+                           <string>exp</string>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>/</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>100.0</double>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>-</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.RandomFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>1.0</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>random</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="name">
+               <string>H</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+          <void property="somaToSoma">
+           <boolean>true</boolean>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="java.util.Vector">
+      <void method="add">
+       <object class="ucl.physiol.neuroconstruct.project.SynapticProperties">
+        <void property="delayGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.NumberGenerator">
+          <void property="fixedNum">
+           <float>5.0</float>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+         </object>
+        </void>
+        <void property="synapseType">
+         <string>Gap_junction</string>
+        </void>
+        <void property="threshold">
+         <double>-20.0</double>
+        </void>
+        <void property="weightsGenerator">
+         <object class="ucl.physiol.neuroconstruct.utils.WeightGenerator">
+          <void property="distributionType">
+           <int>3</int>
+          </void>
+          <void property="inhomoExpr">
+           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+            <void property="first">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+              <void property="first">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>-564.5</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>+</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>576.4</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>*</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                    <void property="internalEqn">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>-1.0</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>2.3</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>+</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>29.7</double>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>*</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                              <void property="internalEqn">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                  <void property="first">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                    <void property="value">
+                                     <double>-1.0</double>
+                                    </void>
+                                   </object>
+                                  </void>
+                                  <void property="operation">
+                                   <char>*</char>
+                                  </void>
+                                  <void property="second">
+                                   <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                    <void property="name">
+                                     <string>r</string>
+                                    </void>
+                                   </object>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>/</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>70.4</double>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="name">
+                               <string>exp</string>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>/</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>100.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>0.124</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="name">
+                     <string>exp</string>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="operation">
+               <char>+</char>
+              </void>
+              <void property="second">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                  <void property="value">
+                   <double>0.5931</double>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>*</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>-1.0</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>2.3</double>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                          <void property="first">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                            <void property="value">
+                             <double>29.7</double>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="operation">
+                           <char>*</char>
+                          </void>
+                          <void property="second">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                            <void property="internalEqn">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                                <void property="first">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                  <void property="value">
+                                   <double>-1.0</double>
+                                  </void>
+                                 </object>
+                                </void>
+                                <void property="operation">
+                                 <char>*</char>
+                                </void>
+                                <void property="second">
+                                 <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                  <void property="name">
+                                   <string>r</string>
+                                  </void>
+                                 </object>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>/</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>70.4</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="name">
+                             <string>exp</string>
+                            </void>
+                           </object>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>100.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>/</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                      <void property="value">
+                       <double>0.0279</double>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>exp</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+             </object>
+            </void>
+            <void property="operation">
+             <char>*</char>
+            </void>
+            <void property="second">
+             <object class="ucl.physiol.neuroconstruct.utils.equation.functions.HeavisideStepFunctionUnit">
+              <void property="internalEqn">
+               <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                <void property="first">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                  <void property="first">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                    <void property="first">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>-1.0</double>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>*</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                        <void property="value">
+                         <double>1745.0</double>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                    <void property="operation">
+                     <char>+</char>
+                    </void>
+                    <void property="second">
+                     <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                      <void property="first">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>90.5</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1745.0</double>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                      <void property="operation">
+                       <char>/</char>
+                      </void>
+                      <void property="second">
+                       <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                        <void property="first">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                          <void property="value">
+                           <double>1.0</double>
+                          </void>
+                         </object>
+                        </void>
+                        <void property="operation">
+                         <char>+</char>
+                        </void>
+                        <void property="second">
+                         <object class="ucl.physiol.neuroconstruct.utils.equation.functions.ExpFunctionUnit">
+                          <void property="internalEqn">
+                           <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                            <void property="first">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.BinaryOperation">
+                              <void property="first">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Variable">
+                                <void property="name">
+                                 <string>r</string>
+                                </void>
+                               </object>
+                              </void>
+                              <void property="operation">
+                               <char>-</char>
+                              </void>
+                              <void property="second">
+                               <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                                <void property="value">
+                                 <double>267.0</double>
+                                </void>
+                               </object>
+                              </void>
+                             </object>
+                            </void>
+                            <void property="operation">
+                             <char>/</char>
+                            </void>
+                            <void property="second">
+                             <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                              <void property="value">
+                               <double>39.0</double>
+                              </void>
+                             </object>
+                            </void>
+                           </object>
+                          </void>
+                          <void property="name">
+                           <string>exp</string>
+                          </void>
+                         </object>
+                        </void>
+                       </object>
+                      </void>
+                     </object>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="operation">
+                   <char>/</char>
+                  </void>
+                  <void property="second">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>100.0</double>
+                    </void>
+                   </object>
+                  </void>
+                 </object>
+                </void>
+                <void property="operation">
+                 <char>-</char>
+                </void>
+                <void property="second">
+                 <object class="ucl.physiol.neuroconstruct.utils.equation.functions.RandomFunctionUnit">
+                  <void property="internalEqn">
+                   <object class="ucl.physiol.neuroconstruct.utils.equation.Constant">
+                    <void property="value">
+                     <double>1.0</double>
+                    </void>
+                   </object>
+                  </void>
+                  <void property="name">
+                   <string>random</string>
+                  </void>
+                 </object>
+                </void>
+               </object>
+              </void>
+              <void property="name">
+               <string>H</string>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="numberType">
+           <int>11</int>
+          </void>
+          <void property="somaToSoma">
+           <boolean>true</boolean>
+          </void>
+         </object>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Max/min</string>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
+    </void>
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.MaxMinLength"/>
     </void>
@@ -1130,6 +2838,41 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.SearchPattern">
+      <void property="type">
+       <int>0</int>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Source</string>
@@ -1138,6 +2881,21 @@ part of NeuroML or any standardised XML specification. -->
     </void>
     <void method="add">
      <string>MFs</string>
+    </void>
+    <void method="add">
+     <string>GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>GoCs_remote</string>
+    </void>
+    <void method="add">
+     <string>GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>GoCs_remote</string>
+    </void>
+    <void method="add">
+     <string>GoCs_remote</string>
     </void>
    </void>
    <void method="get">
@@ -1175,11 +2933,143 @@ part of NeuroML or any standardised XML specification. -->
       </void>
      </object>
     </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="generationDirection">
+       <int>1</int>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>2.0</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="generationDirection">
+       <int>1</int>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>2.0</float>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>6.0</float>
+       </void>
+      </void>
+      <void property="onlyConnectToUniqueCells">
+       <boolean>true</boolean>
+      </void>
+      <void property="prePostAllowedLoc">
+       <void property="axonsAllowedPre">
+        <boolean>false</boolean>
+       </void>
+       <void property="dendritesAllowedPre">
+        <boolean>true</boolean>
+       </void>
+       <void property="somaAllowedPost">
+        <boolean>false</boolean>
+       </void>
+       <void property="somaAllowedPre">
+        <boolean>false</boolean>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>29.0</float>
+       </void>
+      </void>
+      <void property="onlyConnectToUniqueCells">
+       <boolean>true</boolean>
+      </void>
+      <void property="prePostAllowedLoc">
+       <void property="axonsAllowedPre">
+        <boolean>false</boolean>
+       </void>
+       <void property="dendritesAllowedPre">
+        <boolean>true</boolean>
+       </void>
+       <void property="somaAllowedPost">
+        <boolean>false</boolean>
+       </void>
+       <void property="somaAllowedPre">
+        <boolean>false</boolean>
+       </void>
+      </void>
+     </object>
+    </void>
+    <void method="add">
+     <object class="ucl.physiol.neuroconstruct.project.ConnectivityConditions">
+      <void property="allowAutapses">
+       <boolean>false</boolean>
+      </void>
+      <void property="numConnsInitiatingCellGroup">
+       <void property="fixedNum">
+        <float>7.0</float>
+       </void>
+      </void>
+      <void property="onlyConnectToUniqueCells">
+       <boolean>true</boolean>
+      </void>
+      <void property="prePostAllowedLoc">
+       <void property="axonsAllowedPre">
+        <boolean>false</boolean>
+       </void>
+       <void property="dendritesAllowedPre">
+        <boolean>true</boolean>
+       </void>
+       <void property="somaAllowedPost">
+        <boolean>false</boolean>
+       </void>
+       <void property="somaAllowedPre">
+        <boolean>false</boolean>
+       </void>
+      </void>
+     </object>
+    </void>
    </void>
    <void method="get">
     <string>Target</string>
     <void method="add">
      <string>GrCs</string>
+    </void>
+    <void method="add">
+     <string>GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>GrCs</string>
+    </void>
+    <void method="add">
+     <string>GrCs</string>
+    </void>
+    <void method="add">
+     <string>GoCs_local</string>
+    </void>
+    <void method="add">
+     <string>GoCs_remote</string>
     </void>
     <void method="add">
      <string>GoCs_local</string>
