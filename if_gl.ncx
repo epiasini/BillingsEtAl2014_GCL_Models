@@ -808,16 +808,16 @@ part of NeuroML or any standardised XML specification. -->
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>GENESIS</string>
+           <string>MOOSE</string>
           </object>
-          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
+          <string>/share/apps/neuro/moose/moose</string>
          </void>
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">
            <class>ucl.physiol.neuroconstruct.hpc.mpi.MpiSettings$KnownSimulators</class>
-           <string>MOOSE</string>
+           <string>GENESIS</string>
           </object>
-          <string>/share/apps/neuro/moose/moose</string>
+          <string>/share/apps/neuro/genesis-2.3/genesis/genesis</string>
          </void>
          <void method="put">
           <object class="java.lang.Enum" method="valueOf">

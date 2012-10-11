@@ -292,6 +292,14 @@
                     <net:group>apical</net:group>
                 </net:potential_syn_loc>
             
+                <net:potential_syn_loc synapse_type="Golgi_NMDA_mf">
+                    <net:group>basolateral_soma</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Golgi_NMDA_pf">
+                    <net:group>apical</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="MultiDecaySyn_VervaekeEtAl_GJCompensate" synapse_direction="post">
                     <net:group>dendrite_group</net:group>
                 </net:potential_syn_loc>

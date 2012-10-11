@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channelml xmlns="http://morphml.org/channelml/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:meta="http://morphml.org/metadata/schema" xsi:schemaLocation="http://morphml.org/channelml/schema  ../../Schemata/v1.8.1/Level2/ChannelML_v1.8.1.xsd" units="SI Units">
+
+    <synapse_type name="Golgi_NMDA_pf">
+
+      <meta:notes>NMDA component for parallel fiber and mossy fiber to Golgi cell synapse. Incorporates fast and slow component.</meta:notes>
+
+      <status value="stable">
+	<meta:contributor>
+	  <meta:name>Padraig Gleeson</meta:name>
+	</meta:contributor>
+	<meta:contributor>
+	  <meta:name>Eugenio Piasini</meta:name>
+	  <meta:email>e.piasini - at - ucl.ac.uk</meta:email>
+	</meta:contributor>
+      </status>
+      <meta:authorList>
+	<meta:modelAuthor>
+	  <meta:name>Koen Vervaeke</meta:name>
+	</meta:modelAuthor>
+      </meta:authorList>
+
+      <meta:publication>
+	<meta:fullTitle>Vervaeke, K., Lorincz, A., Nusser, Z., and Silver, R. A. Gap junctions compensate for sublinear dendritic integration in an inhibitory network. Science, 335(6076):1624-1628, Mar 2012.</meta:fullTitle>
+	<meta:pubmedRef>http://www.ncbi.nlm.nih.gov/pubmed/22403180</meta:pubmedRef>
+      </meta:publication>
+
+      <blocking_syn max_conductance="0.3e-9" rise_time="3.4e-3" decay_time="44e-3" reversal_potential="0">
+	<block species="mg" conc="1.0" eta="0.5128" gamma="65.33"/>
+      </blocking_syn>
+
+    </synapse_type>
+
+</channelml>
