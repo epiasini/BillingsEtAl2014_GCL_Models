@@ -73,7 +73,15 @@
                     <net:group>all</net:group>
                 </net:potential_syn_loc>
             
+                <net:potential_syn_loc synapse_type="Golgi_AMPA_pf">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="Golgi_NMDA_mf">
+                    <net:group>all</net:group>
+                </net:potential_syn_loc>
+            
+                <net:potential_syn_loc synapse_type="Golgi_NMDA_pf">
                     <net:group>all</net:group>
                 </net:potential_syn_loc>
             
