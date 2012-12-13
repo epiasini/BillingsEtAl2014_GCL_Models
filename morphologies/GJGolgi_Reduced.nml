@@ -45,12 +45,12 @@
 
                 <mml:segment id="9" name="Dend_bl_1" parent="0" cable="7">
                     <mml:proximal x="0.0" y="0.0" z="0.0" diameter="1.0"/>
-                    <mml:distal x="50.0" y="-150.0" z="0.0" diameter="1.0"/>
+                    <mml:distal x="30.0" y="-20.0" z="0.0" diameter="1.0"/>
                 </mml:segment>
 
                 <mml:segment id="10" name="Dend_bl_2" parent="0" cable="8">
                     <mml:proximal x="0.0" y="0.0" z="0.0" diameter="1.0"/>
-                    <mml:distal x="-50.0" y="-150.0" z="0.0" diameter="1.0"/>
+                    <mml:distal x="-30.0" y="-20.0" z="0.0" diameter="1.0"/>
                 </mml:segment>
 
                 <mml:segment id="11" name="Axon" parent="0" cable="9">
@@ -73,36 +73,50 @@
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>GCL</meta:group>
                 </mml:cable>
 
                 <mml:cable id="2" name="Dend_ap_2" fract_along_parent="0.5">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>GCL</meta:group>
                 </mml:cable>
 
                 <mml:cable id="3" name="Dend_ap_2_2">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>parallel_fibres</meta:group>
+                    <meta:group>ML1</meta:group>
                 </mml:cable>
 
                 <mml:cable id="4" name="Dend_ap_2_3">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>parallel_fibres</meta:group>
+                    <meta:group>ML2_3</meta:group>
+                    <meta:group>ML2</meta:group>
+                    <meta:group>ML3</meta:group>
                 </mml:cable>
 
                 <mml:cable id="5" name="Dend_ap_1_2">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>parallel_fibres</meta:group>
+                    <meta:group>ML1</meta:group>
                 </mml:cable>
 
                 <mml:cable id="6" name="Dend_ap_1_3">
                     <meta:group>all</meta:group>
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>apical</meta:group>
+                    <meta:group>parallel_fibres</meta:group>
+                    <meta:group>ML2_3</meta:group>
+                    <meta:group>ML2</meta:group>
+                    <meta:group>ML3</meta:group>
                 </mml:cable>
 
                 <mml:cable id="7" name="Dend_bl_1" fract_along_parent="0.5">
@@ -110,6 +124,7 @@
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>basolateral</meta:group>
                     <meta:group>basolateral_soma</meta:group>
+                    <meta:group>GCL</meta:group>
                 </mml:cable>
 
                 <mml:cable id="8" name="Dend_bl_2" fract_along_parent="0.5">
@@ -117,6 +132,7 @@
                     <meta:group>dendrite_group</meta:group>
                     <meta:group>basolateral</meta:group>
                     <meta:group>basolateral_soma</meta:group>
+                    <meta:group>GCL</meta:group>
                 </mml:cable>
 
                 <mml:cable id="9" name="Axon" fract_along_parent="0.5">
@@ -219,6 +235,15 @@
                     </bio:parameter>
                 </bio:mechanism>
 
+                <bio:mechanism name="VariableLeakConductance" type="Channel Mechanism" passive_conductance="true">
+                    <bio:parameter name="e" value="-55.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                    <bio:parameter name="gmax" value="0.0">
+                        <bio:group>all</bio:group>
+                    </bio:parameter>
+                </bio:mechanism>
+
                 <bio:mechanism name="hcn1f_CML" type="Channel Mechanism">
                     <bio:parameter name="gmax" value="0.05">
                         <bio:group>soma_group</bio:group>
@@ -276,12 +301,16 @@
             </biophysics>
 
             <connectivity>
+                <net:potential_syn_loc synapse_type="ApicalSyn">
+                    <net:group>parallel_fibres</net:group>
+                </net:potential_syn_loc>
+            
                 <net:potential_syn_loc synapse_type="GABA_phasic_average" synapse_direction="preAndOrPost">
                     <net:group>soma_group</net:group>
                 </net:potential_syn_loc>
             
-                <net:potential_syn_loc synapse_type="Gap_junction">
-                    <net:group>apical</net:group>
+                <net:potential_syn_loc synapse_type="GapJuncDiscrete" synapse_direction="post">
+                    <net:group>dendrite_group</net:group>
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Golgi_AMPA_mf">
@@ -289,7 +318,7 @@
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Golgi_AMPA_pf">
-                    <net:group>apical</net:group>
+                    <net:group>parallel_fibres</net:group>
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Golgi_NMDA_mf">
@@ -297,15 +326,7 @@
                 </net:potential_syn_loc>
             
                 <net:potential_syn_loc synapse_type="Golgi_NMDA_pf">
-                    <net:group>apical</net:group>
-                </net:potential_syn_loc>
-            
-                <net:potential_syn_loc synapse_type="MultiDecaySyn_VervaekeEtAl_GJCompensate" synapse_direction="post">
-                    <net:group>dendrite_group</net:group>
-                </net:potential_syn_loc>
-            
-                <net:potential_syn_loc synapse_type="Syn" synapse_direction="post">
-                    <net:group>dendrite_group</net:group>
+                    <net:group>parallel_fibres</net:group>
                 </net:potential_syn_loc>
             </connectivity>
 

@@ -69,7 +69,7 @@ while sim_refs:
     subprocess.call([pullsimfile_path])
     if not os.path.exists(timefile_path):
 	sim_refs.append(sim_ref)
-    time.sleep(1)
+    time.sleep(2)
 
 print('batch reference a' + timestamp)
 System.exit(0)
