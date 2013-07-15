@@ -1,11 +1,13 @@
 *.pyc
 *i686
 *x86_64
+cellProcesses
 generatedNEURON
 generatedGENESIS
 generatedNeuroML
 generatedMOOSE
 generatedPSICS
 simulations
+oldCP
 *.bak
 ./tmp*
