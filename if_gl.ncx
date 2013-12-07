@@ -89,16 +89,12 @@ part of NeuroML or any standardised XML specification. -->
     <void method="add">
      <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
       <void property="maxNumberCells">
-       <int>230</int>
+       <int>4</int>
       </void>
      </object>
     </void>
     <void method="add">
-     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter">
-      <void property="maxNumberCells">
-       <int>690</int>
-      </void>
-     </object>
+     <object class="ucl.physiol.neuroconstruct.project.packing.RandomCellPackingAdapter"/>
     </void>
    </void>
    <void method="get">
@@ -426,9 +422,6 @@ part of NeuroML or any standardised XML specification. -->
       <string>This is the default configuration of the Cell Groups, stimulations, plots, etc for this project</string>
      </void>
      <void property="inputs">
-      <void method="add">
-       <string>bias</string>
-      </void>
       <void method="add">
        <string>MF_stim</string>
       </void>
