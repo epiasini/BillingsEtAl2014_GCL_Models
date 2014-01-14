@@ -103,7 +103,7 @@ part of NeuroML or any standardised XML specification. -->
      <string>ExcCell</string>
     </void>
     <void method="add">
-     <string>IaF_GrC</string>
+     <string>IaF_GrC_no_tonic_GABA</string>
     </void>
    </void>
    <void method="get">
