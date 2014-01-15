@@ -11,7 +11,7 @@
       Integrate and fire granule cell model with average parameters as
       published in Schwartz 2012. Membrane leak only incorporates the
       actual leak conductance (g=1.06nS, erev=-79.9mV), and doesn't
-      account for the tonic GABA conductance (g=0.438nS, erev=-75mV).
+      account for the tonic GABA conductance (g=0.438nS, erev=-79.1mV).
     </notes>
   </iafRefCell>
 
